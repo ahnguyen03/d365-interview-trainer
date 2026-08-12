@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#f2eadc">
-<title>D365 Interview Trainer V7.4</title>
+<title>D365 Interview Trainer V7.5</title>
 <style>
 :root{
   --paper:#f2eadc; --paper2:#fffaf0; --ink:#24303b; --muted:#6c716e;
@@ -96,9 +96,34 @@ pre{white-space:pre-wrap;overflow:auto;background:#24303b;color:#f8f1e5;border:2
 .flashcard.very-dense .interview-box,.flashcard.very-dense .weakness-note{padding:6px;font-size:10.5px;line-height:1.28;margin:4px 0}
 .flashcard.very-dense .confidence{margin:4px 0}
 .flashcard.very-dense .confidence button,.flashcard.very-dense .card-face.back .btn{min-height:34px;padding:5px 7px;font-size:11px}
+.flashcard.dense .card-face.back,
+.flashcard.very-dense .card-face.back{padding-bottom:10px}
 
 .card-face{
   overflow:hidden;
+}
+.card-face.front{
+  overflow:hidden;
+}
+.card-face.back{
+  overflow-y:auto;
+  overflow-x:hidden;
+  overscroll-behavior:contain;
+  padding-bottom:18px;
+  scrollbar-width:thin;
+}
+.card-face.back > .btn:last-child{
+  position:sticky;
+  bottom:0;
+  z-index:6;
+  width:100%;
+  margin-top:10px !important;
+  box-shadow:0 -7px 0 rgba(255,248,231,.92), 3px 3px 0 rgba(33,53,71,.18);
+}
+.card-face.back:after{
+  content:"";
+  display:block;
+  min-height:2px;
 }
 .flashcard.dense .card-face{
   padding:28px 19px 18px;
@@ -178,6 +203,8 @@ pre{white-space:pre-wrap;overflow:auto;background:#24303b;color:#f8f1e5;border:2
   .card-choice{min-height:39px;padding:7px 8px;font-size:13px;line-height:1.25}
   .card-ribbon{font-size:9px;padding:4px 6px;margin-bottom:4px}
   .card-hint{font-size:9px;padding-top:5px}
+  .card-face.back{padding-bottom:12px}
+  .card-face.back > .btn:last-child{bottom:0;min-height:42px}
 }
 </style>
 </head>
@@ -188,7 +215,7 @@ pre{white-space:pre-wrap;overflow:auto;background:#24303b;color:#f8f1e5;border:2
       <h1>D365 Interview Field Notes</h1>
       <p class="subtitle">A technical-consultant and solution-architecture study deck that learns what you miss—and now also drills the platform-theory questions interviewers love: business-rule scope, form behavior, relationships, rollups, formula columns, and process fundamentals.</p>
     </div>
-    <div class="sticker">V7.4 • Responsive Card Fit</div>
+    <div class="sticker">V7.5 • Card Back Fix</div>
   </div>
 
   <div class="nav">
@@ -207,7 +234,7 @@ pre{white-space:pre-wrap;overflow:auto;background:#24303b;color:#f8f1e5;border:2
       <div class="note"><h3>📚 Field Notes</h3><p class="muted">Detailed explanations for pipeline stages, Managed Identity, Power Pages, Service Bus, ALM, SharePoint, and more.</p><button class="btn blue" data-go="knowledge">Open notes</button></div>
     </div>
 
-    <div class="coach-box"><b>V7.4 responsive-card update:</b> long questions and long answer choices now automatically switch into compact card layouts. The card reduces typography and spacing before it ever needs to scroll, so all four choices stay visible much more often on phones.</div><div class="coach-box" id="coachSummary"></div>
+    <div class="coach-box"><b>V7.5 card-back fix:</b> question fronts still compact to keep all four answers visible, while long explanation backs can scroll independently. The Next card button now stays pinned at the bottom of the card so it never gets cut off.</div><div class="coach-box" id="coachSummary"></div>
     <div class="stats" id="homeStats"></div>
     <h2 style="font-family:Georgia,serif">Areas of improvement</h2>
     <div id="masteryGrid" class="mastery-grid"></div><h2 style="font-family:Georgia,serif">Solution architecture skills</h2><div id="archSkillGrid" class="mastery-grid"></div>
